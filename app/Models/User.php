@@ -3,9 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -20,7 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'timezone'
+        'timezone',
+        'is_updated'
     ];
 
     /**
@@ -44,5 +47,22 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function scopeHasUpdated(Builder $query)
+    {
+        $query->whereColumn('is_updated', true);
+    }
+
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::updating(function ($user) {
+           $user->is_updated = true;
+        });
     }
 }
