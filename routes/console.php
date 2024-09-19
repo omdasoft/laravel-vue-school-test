@@ -10,5 +10,5 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote')->hourly();
 
 //Update user attributes command hourly
-Schedule::command(UpdateUserAttributes::class)->everyMinute();
+Schedule::command(UpdateUserAttributes::class)->hourly();
 
