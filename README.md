@@ -2,6 +2,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Status](#status)
+* [Installation](#installation)
 
 ## General info
 This repository is a solution for the Mid-level Laravel Developer test at Vue School. 
@@ -12,7 +13,7 @@ This repository is a solution for the Mid-level Laravel Developer test at Vue Sc
 ## Status
 The project is: completed
 
-## How to Install the Project Locally
+## Installation
 * clone the project
 * cd inside the project
 * run cp .env.example .env
